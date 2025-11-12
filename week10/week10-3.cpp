@@ -1,0 +1,33 @@
+///week10-3.cpp leetcode P.S.Q.54
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int m=matrix.size(),n=matrix[0].size();
+        int t=0,b=m-1,l=0,r=n-1;
+        vector<int> a;
+        while(t<=b&&l<=r){
+            for(int j=l;j<=r;j++){
+                a.push_back(matrix[t][j]);
+            }
+            t++;
+            if(t>b) break;
+            for(int i=t;i<=b;i++){
+                a.push_back(matrix[i][r]);
+            }
+            r--;
+            if(l>r) break;
+            for(int j=r;j>=l;j--){
+                a.push_back(matrix[b][j]);
+            }
+            b--;
+            if(t>b) break;
+            for(int i=b;i>=t;i--){
+                a.push_back(matrix[i][l]);
+            }
+            l++;
+            if(l>r) break;
+        }
+        return a;
+    }
+};
+
